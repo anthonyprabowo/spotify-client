@@ -9,7 +9,7 @@ export default function useAuth(code) {
   const [expiresIn, setExpiresIn] =useState();
 
   useEffect(() => {
-    axios.post('https://spotify-clone-rest-api.herokuapp.com//login', {
+    axios.post('https://spotify-clone-rest-api.herokuapp.com/login', {
       code
     })
     .then(res => {

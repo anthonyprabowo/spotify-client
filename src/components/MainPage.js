@@ -57,7 +57,7 @@ export default function MainPage({code}) {
   useEffect(() => {
     if(!currentSong) return;
 
-    axios.get('https://spotify-clone-rest-api.herokuapp.com//lyrics', {
+    axios.get('https://spotify-clone-rest-api.herokuapp.com/lyrics', {
       params: {
         track: currentSong.trackName,
         artist: currentSong.artistsName,
