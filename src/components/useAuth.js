@@ -9,7 +9,7 @@ export default function useAuth(code) {
   const [expiresIn, setExpiresIn] =useState();
 
   useEffect(() => {
-    axios.post('http://localhost:3001/login', {
+    axios.post('https://spotify-clone-rest-api.herokuapp.com//login', {
       code
     })
     .then(res => {
@@ -26,7 +26,7 @@ export default function useAuth(code) {
 
   useEffect(() => {
     if(!refreshToken || !expiresIn) return // return early if there is no refresh token or expires in
-    axios.post('http://localhost:3001/refresh', {
+    axios.post('https://spotify-clone-rest-api.herokuapp.com/refresh', {
       refreshToken
     })
     .then(res => {
