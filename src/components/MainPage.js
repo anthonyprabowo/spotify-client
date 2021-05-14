@@ -96,8 +96,6 @@ export default function MainPage({code}) {
         </div> 
       }
       
-      
-      
       <div>
         <Player accessToken={accessToken} trackUri={currentSong?.uri} />
       </div>
