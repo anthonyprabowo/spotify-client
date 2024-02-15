@@ -66,7 +66,7 @@ export default function MainPage({code}) {
         },
       })
       .then (res => {
-        setLyrics(res.data.lyrics);
+        setLyrics(res.data.lyrics.lyrics);
       })
       .catch(err => {
         console.log(err);
@@ -80,7 +80,7 @@ export default function MainPage({code}) {
         },
       })
       .then (res => {
-        setLyrics(res.data.lyrics);
+        setLyrics(res.data.lyrics.lyrics);
       })
       .catch(err => {
         console.log(err);
