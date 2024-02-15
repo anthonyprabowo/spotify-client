@@ -58,19 +58,34 @@ export default function MainPage({code}) {
 
   useEffect(() => {
     if(!currentSong) return;
-
-    axios.get('https://spotify-clone-rest-api.herokuapp.com/lyrics', {
-      params: {
-        track: currentSong.trackName,
-        artist: currentSong.artistsName,
-      },
-    })
-    .then (res => {
-      setLyrics(res.data.lyrics);
-    })
-    .catch(err => {
-      console.log(err);
-    })
+    if(process.env.NODE_ENV === 'development') {
+      axios.get('http://localhost:3001/lyrics', {
+        params: {
+          track: currentSong.trackName,
+          artist: currentSong.artistsName,
+        },
+      })
+      .then (res => {
+        setLyrics(res.data.lyrics);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
+    else {
+      axios.get('/lyrics', {
+        params: {
+          track: currentSong.trackName,
+          artist: currentSong.artistsName,
+        },
+      })
+      .then (res => {
+        setLyrics(res.data.lyrics);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
   }, [currentSong])
   return(
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
